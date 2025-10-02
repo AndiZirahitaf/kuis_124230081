@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // Algoritma Logout
   void logout() {
     Navigator.pushAndRemoveUntil(
       context,
@@ -39,10 +40,13 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
+          // List View
           child: ListView.builder(
             itemCount: foodMenuList.length,
             itemBuilder: (context, index) {
               final foods = foodMenuList[index];
+
+              // Card
               return GestureDetector(
                 onTap: () {
                   Navigator.push(
@@ -52,6 +56,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 child: Card(
                   child: ListTile(
+                    // Gambar
                     leading: SizedBox(
                       width: 60,
                       child: Container(
@@ -71,7 +76,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    // leading: Text(foods.imageUrls[0]),
                     title: Text(
                       foods.name,
                       style: TextStyle(

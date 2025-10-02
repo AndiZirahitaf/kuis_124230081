@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'data.dart';
-import 'home.dart';
-// import 'package:url_launcher/url_launcher.dart';
 
 class DetailPage extends StatefulWidget {
   final FoodMenu food;
@@ -12,13 +10,6 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
-  Future<void> _launchURL(String url) async {
-    final Uri uri = Uri.parse(url);
-    // if (!await launchUrl(uri)) {
-    //   throw Exception('Could not launch $url');
-    // }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +19,7 @@ class _DetailPageState extends State<DetailPage> {
           Stack(
             alignment: Alignment.topRight,
             children: [
+              // Hero Image
               Image.network(
                 widget.food.imageUrls[0],
                 errorBuilder: (context, error, stackTrace) {
@@ -42,6 +34,8 @@ class _DetailPageState extends State<DetailPage> {
               ),
             ],
           ),
+
+          // Informasi Makanan
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -135,6 +129,7 @@ class _DetailPageState extends State<DetailPage> {
                 ),
                 SizedBox(height: 25),
 
+                // Button Beli
                 ElevatedButton(
                   onPressed: () {
                     ScaffoldMessenger.of(context).showSnackBar(

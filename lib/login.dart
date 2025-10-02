@@ -14,9 +14,12 @@ class _LoginPageState extends State<LoginPage> {
 
   bool _obscure = true;
 
+  // Login Function
   void login() {
+    // Cek kalau inputnya sudah terisi atau masih kosong.
     if (_usernameController.text.isNotEmpty &&
         _passwordController.text.isNotEmpty) {
+      // Cek kalau username dan password sudah benar.
       if (_usernameController.text == "umar" &&
           _passwordController.text == "081") {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -52,7 +55,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(title: Text("Login")),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(30.0),
@@ -60,7 +62,6 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Image.asset('images/kalkulator.png', height: 100),
               Icon(Icons.food_bank, color: Colors.orange[600], size: 100),
               SizedBox(height: 10),
               Text(
@@ -73,6 +74,8 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
               ),
               SizedBox(height: 20),
+
+              // Username Input
               TextFormField(
                 controller: _usernameController,
                 decoration: InputDecoration(
@@ -81,6 +84,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               SizedBox(height: 20),
+
+              // Password Input
               TextFormField(
                 keyboardType: TextInputType.text,
                 obscureText: _obscure,
@@ -101,6 +106,8 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               SizedBox(height: 30),
+
+              // Login Button
               ElevatedButton(
                 onPressed: () {
                   login();
